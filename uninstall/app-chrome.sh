@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo apt remove -y google-chrome-stable
+yay -Rns --noconfirm google-chrome

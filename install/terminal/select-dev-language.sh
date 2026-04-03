@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Install default programming languages
-if [[ -v OMAKUB_FIRST_RUN_LANGUAGES ]]; then
-  languages=$OMAKUB_FIRST_RUN_LANGUAGES
+if [[ -v BTW_FIRST_RUN_LANGUAGES ]]; then
+  languages=$BTW_FIRST_RUN_LANGUAGES
 else
   AVAILABLE_LANGUAGES=("Ruby on Rails" "Node.js" "Go" "PHP" "Python" "Elixir" "Rust" "Java")
   languages=$(gum choose "${AVAILABLE_LANGUAGES[@]}" --no-limit --height 10 --header "Select programming languages")
@@ -23,7 +23,7 @@ if [[ -n "$languages" ]]; then
       mise use --global go@latest
       ;;
     PHP)
-      sudo apt -y install php php-{curl,apcu,intl,mbstring,opcache,pgsql,mysql,sqlite3,redis,xml,zip} --no-install-recommends
+      yay -S --needed --noconfirm php php-apcu php-intl php-redis php-sqlite php-pgsql
       php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
       php composer-setup.php --quiet && sudo mv composer.phar /usr/local/bin/composer
       rm composer-setup.php

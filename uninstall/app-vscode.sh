@@ -1,4 +1,4 @@
 #!/bin/bash
 
-sudo apt purge -y remove code
+yay -Rns --noconfirm visual-studio-code-bin
 rm -rf ~/.config/Code/User

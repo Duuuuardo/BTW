@@ -1,24 +1,23 @@
 #!/bin/bash
 
 ascii_art='
-________                  __        ___.
-\_____  \   _____ _____  |  | ____ _\_ |__
- /   |   \ /     \\__   \ |  |/ /  |  \ __ \
-/    |    \  Y Y  \/ __ \|    <|  |  / \_\ \
-\_______  /__|_|  (____  /__|_ \____/|___  /
-        \/      \/     \/     \/         \/
+  ____                  __        _       __    __
+ / __ \____ ___  ____ _/ /____  _/ /_    / /_  / /__    __
+/ / / / __ `__ \/ __ `/ //_/ / / / __ \ / __ \/ __/ | /| / /
+/ /_/ / / / / / / /_/ / ,< / /_/ / /_/ // /_/ / /_ | |/ |/ /
+\____/_/ /_/ /_/\__,_/_/|_|\__,_/_.___(_)_.___/\__/ |__/|__/
 
 '
 
-# Define the color gradient (shades of cyan and blue)
+# Define the color gradient (shades of Gruvbox)
 colors=(
-	'\033[38;5;81m' # Cyan
-	'\033[38;5;75m' # Light Blue
-	'\033[38;5;69m' # Sky Blue
-	'\033[38;5;63m' # Dodger Blue
-	'\033[38;5;57m' # Deep Sky Blue
-	'\033[38;5;51m' # Cornflower Blue
-	'\033[38;5;45m' # Royal Blue
+	'\033[38;5;142m' # Gruvbox green
+	'\033[38;5;214m' # Gruvbox yellow
+	'\033[38;5;208m' # Gruvbox orange
+	'\033[38;5;167m' # Gruvbox red
+	'\033[38;5;175m' # Gruvbox magenta
+	'\033[38;5;109m' # Gruvbox blue
+	'\033[38;5;142m' # Gruvbox green
 )
 
 # Split the ASCII art into lines

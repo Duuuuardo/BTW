@@ -1,3 +1,4 @@
 #!/bin/bash
 
-curl -fsSL https://tailscale.com/install.sh | sh
+yay -S --needed --noconfirm tailscale
+sudo systemctl enable --now tailscaled

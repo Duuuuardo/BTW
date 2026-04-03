@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo apt remove -y tailscale
+yay -Rns --noconfirm tailscale

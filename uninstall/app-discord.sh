@@ -1,1 +1,3 @@
-sudo apt remove --purge -y discord
+#!/bin/bash
+
+yay -Rns --noconfirm discord

@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Uninstall default programming languages
-if [[ -v OMAKUB_FIRST_RUN_LANGUAGES ]]; then
-  languages=$OMAKUB_FIRST_RUN_LANGUAGES
+if [[ -v BTW_FIRST_RUN_LANGUAGES ]]; then
+  languages=$BTW_FIRST_RUN_LANGUAGES
 else
   AVAILABLE_LANGUAGES=("Ruby on Rails" "Node.js" "Go" "PHP" "Python" "Elixir" "Rust" "Java")
   languages=$(gum choose "${AVAILABLE_LANGUAGES[@]}" --no-limit --height 10 --header "Select programming languages to uninstall")
@@ -22,8 +22,7 @@ if [[ -n $languages ]]; then
       mise uninstall go@latest
       ;;
     PHP)
-      sudo apt -y purge php php-{curl,apcu,intl,mbstring,opcache,pgsql,mysql,sqlite3,redis,xml,zip}
-      sudo apt -y autoremove
+      yay -Rns --noconfirm php php-apcu php-intl php-sqlite php-redis
       sudo rm /usr/local/bin/composer
       ;;
     Python)

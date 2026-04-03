@@ -1,4 +1,4 @@
 #!/bin/bash
 
-sudo apt purge --auto-remove docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin docker-ce-rootless-extras
+yay -Rns --noconfirm docker docker-compose
 sudo groupdel docker

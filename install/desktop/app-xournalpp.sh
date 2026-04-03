@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo apt install -y xournalpp
+yay -S --needed --noconfirm xournalpp

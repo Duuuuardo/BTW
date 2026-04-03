@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo apt remove -y vlc
+yay -Rns --noconfirm vlc

@@ -1,0 +1,5 @@
+source ~/.local/share/btw/defaults/zsh/shell
+source ~/.local/share/btw/defaults/zsh/aliases
+source ~/.local/share/btw/defaults/zsh/functions
+source ~/.local/share/btw/defaults/zsh/prompt
+source ~/.local/share/btw/defaults/zsh/init

@@ -1,0 +1,4 @@
+#!/bin/bash
+
+source $BTW_PATH/bin/btw-sub/header.sh
+source $BTW_PATH/bin/btw-sub/menu.sh

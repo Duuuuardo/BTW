@@ -6,7 +6,7 @@ if [ -n "$(gnome-extensions list | grep Vitals@CoreCoding.com)" ]; then
 fi
 
 # Install Tophat libraries
-sudo apt install -y gir1.2-gtop-2.0 gir1.2-clutter-1.0
+yay -S --needed --noconfirm libgtop
 
 # Install TopHat
 gext install tophat@fflewddur.github.io
@@ -21,13 +21,8 @@ gsettings set org.gnome.shell.extensions.tophat show-disk false
 gsettings set org.gnome.shell.extensions.tophat show-mem false
 gsettings set org.gnome.shell.extensions.tophat network-usage-unit bits
 
-# Set TopHat metrics color to match the theme
-THEME_NAMES=("Tokyo Night" "Catppuccin" "Nord" "Everforest" "Gruvbox" "Kanagawa" "Rose Pine")
-THEME=$(gum choose "${THEME_NAMES[@]}" "Default" --header "Choose your theme" --height 10 | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g')
-
-if [ -n "$THEME" ] && [ "$THEME" != "default" ]; then
-  source $OMAKUB_PATH/themes/$THEME/tophat.sh
-fi
+# Set TopHat metrics color to match the Gruvbox theme
+source $BTW_PATH/themes/gruvbox/tophat.sh
 
 # Logout
 gum confirm "Ready to logout for all settings to take effect?" && gnome-session-quit --logout --no-prompt

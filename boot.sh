@@ -2,29 +2,42 @@
 
 set -e
 
-ascii_art='________                  __        ___.
-\_____  \   _____ _____  |  | ____ _\_ |__
- /   |   \ /     \\__   \ |  |/ /  |  \ __ \
-/    |    \  Y Y  \/ __ \|    <|  |  / \_\ \
-\_______  /__|_|  (____  /__|_ \____/|___  /
-        \/      \/     \/     \/         \/
+ascii_art='
+  ____                  __        _       __    __
+ / __ \____ ___  ____ _/ /____  _/ /_    / /_  / /__    __
+/ / / / __ `__ \/ __ `/ //_/ / / / __ \ / __ \/ __/ | /| / /
+/ /_/ / / / / / / /_/ / ,< / /_/ / /_/ // /_/ / /_ | |/ |/ /
+\____/_/ /_/ /_/\__,_/_/|_|\__,_/_.___(_)_.___/\__/ |__/|__/
+
 '
 
 echo -e "$ascii_art"
-echo "=> Omakub is for fresh Ubuntu 24.04+ installations only!"
+echo "=> BTW is for fresh Arch Linux GNOME installations only!"
 echo -e "\nBegin installation (or abort with ctrl+c)..."
 
-sudo apt-get update >/dev/null
-sudo apt-get install -y git >/dev/null
+# Check for 'yay' and install it if not found
+if ! command -v yay >/dev/null 2>&1; then
+  echo "=> 'yay' not found. Installing 'yay'..."
+  sudo pacman -S --needed --noconfirm git base-devel
+  git clone https://aur.archlinux.org/yay.git /tmp/yay
+  pushd /tmp/yay >/dev/null
+  makepkg -si --noconfirm
+  popd >/dev/null
+  rm -rf /tmp/yay
+fi
 
-echo "Cloning Omakub..."
-rm -rf ~/.local/share/omakub
-git clone https://github.com/basecamp/omakub.git ~/.local/share/omakub >/dev/null
-if [[ $OMAKUB_REF != "master" ]]; then
-	cd ~/.local/share/omakub
-	git fetch origin "${OMAKUB_REF:-stable}" && git checkout "${OMAKUB_REF:-stable}"
+# Update the system and 'yay'
+echo "=> Updating system and 'yay' packages..."
+yay -Syu --noconfirm
+
+echo "Cloning BTW..."
+rm -rf ~/.local/share/btw
+git clone "${BTW_REPO:-https://github.com/Duuuuardo/btw.git}" ~/.local/share/btw >/dev/null
+if [[ $BTW_REF != "master" ]]; then
+	cd ~/.local/share/btw
+	git fetch origin "${BTW_REF:-stable}" && git checkout "${BTW_REF:-stable}"
 	cd -
 fi
 
 echo "Installation starting..."
-source ~/.local/share/omakub/install.sh
+source ~/.local/share/btw/install.sh

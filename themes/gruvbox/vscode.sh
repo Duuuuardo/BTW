@@ -1,5 +1,6 @@
 #!/bin/bash
 
-VSC_THEME="Gruvbox Dark Medium"
-VSC_EXTENSION="jdinhlife.gruvbox"
-source $OMAKUB_PATH/themes/set-vscode-theme.sh
+if command -v code &>/dev/null; then
+  code --install-extension sainnhe.gruvbox-material >/dev/null
+  sed -i 's/"workbench.colorTheme": ".*"/"workbench.colorTheme": "Gruvbox Material Dark"/g' ~/.config/Code/User/settings.json
+fi

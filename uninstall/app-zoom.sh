@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo apt remove -y zoom
+yay -Rns --noconfirm zoom

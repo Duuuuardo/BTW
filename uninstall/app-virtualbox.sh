@@ -1,5 +1,4 @@
 #!/bin/bash
 
-sudo apt purge -y virtualbox virtualbox-dkms virtualbox-qt virtualbox-ext-pack
-sudo apt autoremove --purge -y
+yay -Rns --noconfirm virtualbox virtualbox-host-dkms
 rm -rf ~/.config/VirtualBox
