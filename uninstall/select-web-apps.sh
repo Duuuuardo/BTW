@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source $BTW_PATH/defaults/zsh/functions
+source $BTW_PATH/defaults/bash/functions
 
 AVAILABLE_WEB_APPS=("Chat GPT" "Google Photos" "Google Contacts" "Tailscale")
 apps=$(gum choose "${AVAILABLE_WEB_APPS[@]}" --no-limit --height 6 --header "Select web apps to uninstall")

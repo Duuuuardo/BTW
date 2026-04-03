@@ -2,6 +2,7 @@
 
 CHOICES=(
 	"BTW           Update BTW itself and run any migrations"
+	"Claude Code   AI coding assistant from Anthropic"
 	"LazyGit       TUI for Git"
 	"LazyDocker    TUI for Docker"
 	"Neovim        Text editor that runs in the terminal"
@@ -9,7 +10,7 @@ CHOICES=(
 	"<< Back       "
 )
 
-CHOICE=$(gum choose "${CHOICES[@]}" --height 9 --header "Update manually-managed applications")
+CHOICE=$(gum choose "${CHOICES[@]}" --height 10 --header "Update manually-managed applications")
 
 if [[ "$CHOICE" == "<< Back"* ]] || [[ -z "$CHOICE" ]]; then
 	# Don't update anything
