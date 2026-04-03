@@ -16,7 +16,7 @@ if [ ! -d "$HOME/.config/nvim" ]; then
   cp ~/.local/share/btw/configs/neovim/config/keymaps.lua ~/.config/nvim/lua/config/keymaps.lua
 
   # Duuuuardo utilities (renamed from craftzdog)
-  cp ~/.local/share/btw/configs/neovim/duuuuardo/discipline.lua ~/.config/nvim/lua/duuuuardo/discipline.lua
+  cp ~/.local/share/btw/configs/neovim/duuuuardo/calmdown.lua ~/.config/nvim/lua/duuuuardo/calmdown.lua
   cp ~/.local/share/btw/configs/neovim/duuuuardo/lsp.lua ~/.config/nvim/lua/duuuuardo/lsp.lua
 
   # Plugin configs
