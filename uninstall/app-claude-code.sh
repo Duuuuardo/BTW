@@ -1,3 +1,3 @@
 #!/bin/bash
 
-npm uninstall -g @anthropic-ai/claude-code
+mise exec -- npm uninstall -g @anthropic-ai/claude-code
