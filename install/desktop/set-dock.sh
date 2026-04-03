@@ -15,7 +15,7 @@ apps=(
 	"Activity.desktop"
 	"Docker.desktop"
 	"Btw.desktop"
-	"1password.desktop"
+	"proton-pass.desktop"
 	"org.gnome.Settings.desktop"
 	"org.gnome.Nautilus.desktop"
 	"localsend_app.desktop"

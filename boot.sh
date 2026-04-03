@@ -39,5 +39,7 @@ if [[ $BTW_REF != "master" ]]; then
 	cd -
 fi
 
+chmod +x ~/.local/share/btw/bin/btw
+
 echo "Installation starting..."
 source ~/.local/share/btw/install.sh
