@@ -6,7 +6,7 @@ yay -S --needed --noconfirm gnome-shell-extension-manager gnome-extensions-cli
 gnome-extensions disable tiling-assistant@ubuntu.com 2>/dev/null || true
 gnome-extensions disable ubuntu-appindicators@ubuntu.com 2>/dev/null || true
 gnome-extensions disable ubuntu-dock@ubuntu.com 2>/dev/null || true
-gnome-extensions disable ding@rastersoft.com
+gnome-extensions disable ding@rastersoft.com 2>/dev/null || true
 
 # Pause to assure user is ready to accept confirmations
 gum confirm "To install Gnome extensions, you need to accept some confirmations. Ready?"
