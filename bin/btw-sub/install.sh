@@ -5,13 +5,12 @@ CHOICES=(
   "Dev Language      Install programming language environment"
   "Dev Database      Install development database in Docker"
   "Tailscale         Mesh VPN based on WireGuard and with Magic DNS"
-  "Geekbench         CPU benchmaking tool"
   "Web Apps          Install web apps with their own icon and shell"
   "> All             Re-run any of the default installers"
   "<< Back           "
 )
 
-CHOICE=$(gum choose "${CHOICES[@]}" --height 11 --header "Install application")
+CHOICE=$(gum choose "${CHOICES[@]}" --height 10 --header "Install application")
 
 if [[ "$CHOICE" == "<< Back"* ]] || [[ -z "$CHOICE" ]]; then
   # Don't install anything
@@ -32,7 +31,6 @@ else
   "dev-language") INSTALLER_FILE="$BTW_PATH/install/terminal/select-dev-language.sh" ;;
   "dev-database") INSTALLER_FILE="$BTW_PATH/install/terminal/select-dev-storage.sh" ;;
   "tailscale") INSTALLER_FILE="$BTW_PATH/install/terminal/optional/app-tailscale.sh" ;;
-  "geekbench") INSTALLER_FILE="$BTW_PATH/install/terminal/optional/app-geekbench.sh" ;;
   *) INSTALLER_FILE="$BTW_PATH/install/desktop/optional/app-$INSTALLER.sh" ;;
   esac
 
