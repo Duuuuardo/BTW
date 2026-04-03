@@ -20,5 +20,5 @@ cp ~/.local/share/btw/configs/inputrc ~/.inputrc
 
 # Change default shell to zsh
 if [ "$SHELL" != "$(which zsh)" ]; then
-  chsh -s $(which zsh)
+  sudo usermod -s $(which zsh) $USER
 fi
