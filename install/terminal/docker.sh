@@ -19,3 +19,8 @@ fi
 # Start and enable docker service
 sudo systemctl restart docker.service
 sudo systemctl enable docker.service
+
+# Apply docker group to current session so subsequent commands work
+if ! id -nG "$USER" | grep -qw docker; then
+  sg docker -c "true" 2>/dev/null || true
+fi

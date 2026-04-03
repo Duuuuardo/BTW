@@ -12,13 +12,13 @@ if [[ -n "$dbs" ]]; then
 	for db in $dbs; do
 		case $db in
 		MySQL)
-			docker run -d --restart unless-stopped -p "127.0.0.1:3306:3306" --name=mysql8 -e MYSQL_ROOT_PASSWORD= -e MYSQL_ALLOW_EMPTY_PASSWORD=true mysql:8.4
+			sg docker -c "docker run -d --restart unless-stopped -p '127.0.0.1:3306:3306' --name=mysql8 -e MYSQL_ROOT_PASSWORD= -e MYSQL_ALLOW_EMPTY_PASSWORD=true mysql:8.4"
 			;;
 		Redis)
-			docker run -d --restart unless-stopped -p "127.0.0.1:6379:6379" --name=redis redis:7
+			sg docker -c "docker run -d --restart unless-stopped -p '127.0.0.1:6379:6379' --name=redis redis:7"
 			;;
 		PostgreSQL)
-			docker run -d --restart unless-stopped -p "127.0.0.1:5432:5432" --name=postgres16 -e POSTGRES_HOST_AUTH_METHOD=trust postgres:16
+			sg docker -c "docker run -d --restart unless-stopped -p '127.0.0.1:5432:5432' --name=postgres16 -e POSTGRES_HOST_AUTH_METHOD=trust postgres:16"
 			;;
 		esac
 	done
