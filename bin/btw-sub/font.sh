@@ -7,15 +7,13 @@ set_font() {
 	local file_name="${font_name/ Nerd Font/}"
 
 	if ! $(fc-list | grep -i "$font_name" >/dev/null); then
-		cd /tmp
-		rm -rf "$file_name.zip" "$file_name"
-		wget -q -O "$file_name.zip" "$url"
-		unzip -o "$file_name.zip" -d "$file_name"
+		local tmpdir=$(mktemp -d)
+		curl -fsSL -o "$tmpdir/$file_name.zip" "$url"
+		unzip -o "$tmpdir/$file_name.zip" -d "$tmpdir/$file_name"
 		mkdir -p ~/.local/share/fonts
-		cp "$file_name"/*."$file_type" ~/.local/share/fonts
-		rm -rf "$file_name.zip" "$file_name"
+		cp "$tmpdir/$file_name"/*."$file_type" ~/.local/share/fonts
+		rm -rf "$tmpdir"
 		fc-cache
-		cd -
 		clear
 		source $BTW_PATH/ascii.sh
 	fi
