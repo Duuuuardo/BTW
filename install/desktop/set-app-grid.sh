@@ -24,4 +24,4 @@ gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folder
 gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/Xtra/ name 'Xtra'
 gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/Xtra/ apps "['org.Characters.desktop', 'gnome-language-selector.desktop', 'org.gnome.PowerStats.desktop', 'org.gnome.Logs.desktop', 'yelp.desktop', 'org.gnome.Yelp.desktop', 'org.gnome.eog.desktop', 'org.gnome.Sysprof.desktop' ]"
 gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/WebApps/ name 'Web Apps'
-gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/WebApps/ apps "['WhatsApp.desktop']"
+gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/WebApps/ apps "['WhatsApp.desktop', 'ChatGPT.desktop', 'YouTube.desktop', 'YouTube Music.desktop', 'GitHub.desktop', 'Google Photos.desktop', 'Google Messages.desktop', 'Google Maps.desktop', 'Figma.desktop', 'X.desktop']"

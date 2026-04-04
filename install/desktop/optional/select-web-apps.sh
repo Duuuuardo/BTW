@@ -2,29 +2,33 @@
 
 source $BTW_PATH/defaults/bash/functions
 
-AVAILABLE_WEB_APPS=("Chat GPT" "Google Photos" "Google Contacts" "Tailscale")
-apps=$(gum choose "${AVAILABLE_WEB_APPS[@]}" --no-limit --height 6 --header "Select web apps")
+# Install web apps directly
+web2app 'WhatsApp' https://web.whatsapp.com/ https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/whatsapp.png
+app2folder 'WhatsApp.desktop' WebApps
 
-if [[ -n "$apps" ]]; then
-  IFS=$'\n'
-  for app in $apps; do
-    case $app in
-    "Chat GPT")
-      web2app 'Chat GPT' https://chatgpt.com/ https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/chatgpt.png
-      app2folder 'Chat GPT.desktop' WebApps
-      ;;
-    "Google Photos")
-      web2app 'Google Photos' https://photos.google.com/ https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/google-photos.png
-      app2folder 'Google Photos.desktop' WebApps
-      ;;
-    "Google Contacts")
-      web2app 'Google Contacts' https://contacts.google.com/ https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/google-contacts.png
-      app2folder 'Google Contacts.desktop' WebApps
-      ;;
-    "Tailscale")
-      web2app 'Tailscale' https://login.tailscale.com/admin/ https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/tailscale-light.png
-      app2folder 'Tailscale.desktop' WebApps
-      ;;
-    esac
-  done
-fi
+web2app 'ChatGPT' https://chatgpt.com/ https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/chatgpt.png
+app2folder 'ChatGPT.desktop' WebApps
+
+web2app 'YouTube' https://youtube.com/ https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/youtube.png
+app2folder 'YouTube.desktop' WebApps
+
+web2app 'YouTube Music' https://music.youtube.com/ https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/youtube-music.png
+app2folder 'YouTube Music.desktop' WebApps
+
+web2app 'GitHub' https://github.com/ https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/github-light.png
+app2folder 'GitHub.desktop' WebApps
+
+web2app 'Google Photos' https://photos.google.com/ https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/google-photos.png
+app2folder 'Google Photos.desktop' WebApps
+
+web2app 'Google Messages' https://messages.google.com/web/conversations https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/google-messages.png
+app2folder 'Google Messages.desktop' WebApps
+
+web2app 'Google Maps' https://maps.google.com https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/google-maps.png
+app2folder 'Google Maps.desktop' WebApps
+
+web2app 'Figma' https://figma.com/ https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/figma.png
+app2folder 'Figma.desktop' WebApps
+
+web2app 'X' https://x.com/ https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/x.png
+app2folder 'X.desktop' WebApps
