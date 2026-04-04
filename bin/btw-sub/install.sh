@@ -6,6 +6,7 @@ CHOICES=(
   "Dev Database      Install development database in Docker"
   "Tailscale         Mesh VPN based on WireGuard and with Magic DNS"
   "Web Apps          Install web apps with their own icon and shell"
+  "Windows           Install Windows VM via Docker (auto download + RDP)"
   "> All             Re-run any of the default installers"
   "<< Back           "
 )
@@ -31,6 +32,7 @@ else
   "dev-language") INSTALLER_FILE="$BTW_PATH/install/terminal/select-dev-language.sh" ;;
   "dev-database") INSTALLER_FILE="$BTW_PATH/install/terminal/select-dev-storage.sh" ;;
   "tailscale") INSTALLER_FILE="$BTW_PATH/install/terminal/app-tailscale.sh" ;;
+  "windows") INSTALLER_FILE="$BTW_PATH/install/desktop/app-windows.sh" ;;
   *) INSTALLER_FILE="$BTW_PATH/install/desktop/app-$INSTALLER.sh" ;;
   esac
 
