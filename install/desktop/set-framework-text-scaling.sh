@@ -1,7 +1,7 @@
 #!/bin/bash
 
-COMPUTER_MAKER=$(sudo dmidecode -t system | grep 'Manufacturer:' | awk '{print $2}')
-SCREEN_RESOLUTION=$(xrandr | grep '*+' | awk '{print $1}')
+COMPUTER_MAKER=$(cat /sys/devices/virtual/dmi/id/board_vendor 2>/dev/null || echo "Unknown")
+SCREEN_RESOLUTION=$(wlr-randr 2>/dev/null | grep 'current' | awk '{print $1}' || echo "Unknown")
 
 if [ "$COMPUTER_MAKER" == "Framework" ] && [ "$SCREEN_RESOLUTION" == "2256x1504" ]; then
 	gsettings set org.gnome.desktop.interface text-scaling-factor 0.8
