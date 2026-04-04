@@ -12,7 +12,7 @@ if [[ "$CHOICE" == "<< Back"* ]] || [[ -z "$CHOICE" ]]; then
   echo ""
 else
   INSTALLER=$(echo "$CHOICE" | awk -F ' {2,}' '{print $1}' | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g')
-  INSTALLER_FILE="$BTW_PATH/install/desktop/optional/app-$INSTALLER.sh"
+  INSTALLER_FILE="$BTW_PATH/install/desktop/app-$INSTALLER.sh"
 
   source $INSTALLER_FILE && gum spin --spinner globe --title "Install completed!" -- sleep 3
 fi

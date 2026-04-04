@@ -1,3 +1,1 @@
-#!/bin/bash
-
-yay -Rns --noconfirm flameshot
+flatpak uninstall -y org.flameshot.Flameshot

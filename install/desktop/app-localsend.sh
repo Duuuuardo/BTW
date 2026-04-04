@@ -1,3 +1,1 @@
-#!/bin/bash
-
-yay -S --needed --noconfirm localsend-bin
+flatpak install --or-update -y org.localsend.localsend_app

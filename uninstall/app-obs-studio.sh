@@ -1,3 +1,1 @@
-#!/bin/bash
-
-yay -Rns --noconfirm obs-studio
+flatpak uninstall -y com.obsproject.Studio

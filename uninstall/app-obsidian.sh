@@ -1,3 +1,1 @@
-#!/bin/bash
-
-yay -Rns --noconfirm obsidian-bin
+flatpak uninstall -y flathub md.obsidian.Obsidian

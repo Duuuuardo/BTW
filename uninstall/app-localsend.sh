@@ -1,3 +1,1 @@
-#!/bin/bash
-
-yay -Rns --noconfirm localsend-bin
+flatpak uninstall -y org.localsend.localsend_app

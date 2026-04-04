@@ -1,3 +1,1 @@
-#!/bin/bash
-
-yay -Rns --noconfirm steam
+flatpak uninstall -y com.valvesoftware.Steam

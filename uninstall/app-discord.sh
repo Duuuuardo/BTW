@@ -1,3 +1,1 @@
-#!/bin/bash
-
-yay -Rns --noconfirm discord
+flatpak uninstall -y com.discordapp.Discord

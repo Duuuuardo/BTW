@@ -1,3 +1,1 @@
-#!/bin/bash
-
-yay -S --needed --noconfirm vlc
+flatpak install --or-update -y org.videolan.VLC

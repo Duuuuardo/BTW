@@ -1,4 +1,2 @@
-#!/bin/bash
-
 # Flameshot is a nice step-up over the default Gnome screenshot tool
-yay -S --needed --noconfirm flameshot
+flatpak install --or-update -y org.flameshot.Flameshot

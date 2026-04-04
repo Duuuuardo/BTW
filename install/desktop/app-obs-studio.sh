@@ -1,4 +1,2 @@
-#!/bin/bash
-
 # OBS Studio is a screen recording application that allows you to capture both display and webcam in the same recording
-yay -S --needed --noconfirm obs-studio
+flatpak install --or-update -y com.obsproject.Studio

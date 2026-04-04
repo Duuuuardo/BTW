@@ -1,3 +1,1 @@
-#!/bin/bash
-
-yay -Rns --noconfirm spotify
+flatpak uninstall -y com.spotify.Client
