@@ -23,7 +23,7 @@ if [[ -n "$languages" ]]; then
       mise use --global go@latest
       ;;
     PHP)
-      yay -S --needed --noconfirm php php-apcu php-intl php-redis php-sqlite php-pgsql
+      yay -S --needed --noconfirm php php-apcu php-intl php-redis php-pgsql
       php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
       php composer-setup.php --quiet && sudo mv composer.phar /usr/local/bin/composer
       rm composer-setup.php

@@ -26,6 +26,12 @@ if ! command -v yay >/dev/null 2>&1; then
   rm -rf /tmp/yay
 fi
 
+# Enable multilib repo (needed for steam and other 32-bit packages)
+if ! grep -q "^\[multilib\]" /etc/pacman.conf; then
+  echo "=> Enabling multilib repository..."
+  sudo sed -i '/^#\[multilib\]/{s/^#//;n;s/^#//}' /etc/pacman.conf
+fi
+
 # Update the system and 'yay'
 echo "=> Updating system and 'yay' packages..."
 yay -Syu --noconfirm
