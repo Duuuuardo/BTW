@@ -1,3 +1,3 @@
 #!/bin/bash
 
-yay -Rns --noconfirm fastfetch
+sudo apt remove --purge -y fastfetch

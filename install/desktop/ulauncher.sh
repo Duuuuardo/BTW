@@ -1,6 +1,7 @@
 #!/bin/bash
 
-yay -S --needed --noconfirm ulauncher
+sudo add-apt-repository ppa:agornostal/ulauncher -y
+sudo apt install -y ulauncher
 
 # Start ulauncher to have it populate config before we overwrite
 mkdir -p ~/.config/autostart/

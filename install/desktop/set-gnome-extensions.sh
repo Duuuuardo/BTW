@@ -1,7 +1,9 @@
 #!/bin/bash
 
-# Use system Python (not mise's) to avoid missing build module during AUR compilation
-PATH=$(echo "$PATH" | tr ':' '\n' | grep -v mise | tr '\n' ':') yay -S --needed --noconfirm python-build gnome-shell-extension-manager gnome-extensions-cli
+sudo apt install -y python3-build gnome-shell-extension-manager
+
+# Install gnome-extensions-cli via pipx
+pipx install gnome-extensions-cli --system-site-packages
 
 # Turn off default GNOME extensions (if present)
 gnome-extensions disable tiling-assistant@ubuntu.com 2>/dev/null || true

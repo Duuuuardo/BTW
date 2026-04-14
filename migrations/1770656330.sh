@@ -1,4 +1,4 @@
 #!/bin/bash
 
-# On Arch, Spotify is installed via AUR - no GPG key management needed
-# yay handles updates automatically
+# On Ubuntu, Spotify is installed via Flatpak - no GPG key management needed
+# flatpak handles updates automatically

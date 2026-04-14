@@ -22,7 +22,7 @@ if [[ -n $languages ]]; then
       mise uninstall go@latest
       ;;
     PHP)
-      yay -Rns --noconfirm php php-apcu php-intl php-sqlite php-redis
+      sudo apt remove --purge -y php php-apcu php-intl php-sqlite php-redis php-pgsql
       sudo rm /usr/local/bin/composer
       ;;
     Python)

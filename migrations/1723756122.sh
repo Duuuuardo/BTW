@@ -6,7 +6,7 @@ if [ -n "$(gnome-extensions list | grep Vitals@CoreCoding.com)" ]; then
 fi
 
 # Install Tophat libraries
-yay -S --needed --noconfirm libgtop
+sudo apt install -y gir1.2-gtop-2.0
 
 # Install TopHat
 gext install tophat@fflewddur.github.io

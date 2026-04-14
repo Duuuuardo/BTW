@@ -1,4 +1,4 @@
 #!/bin/bash
 
-yay -S --needed --noconfirm tailscale
+curl -fsSL https://tailscale.com/install.sh | sh
 sudo systemctl enable --now tailscaled

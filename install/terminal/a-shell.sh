@@ -1,7 +1,8 @@
 #!/bin/bash
 
-# Install zsh if not present
-yay -S --needed --noconfirm zsh starship
+# Install zsh and starship
+sudo apt install -y zsh
+curl -sS https://starship.rs/install.sh | sh -s -- --yes
 
 # Configure the bash shell using BTW defaults (fallback)
 [ -f ~/.bashrc ] && mv ~/.bashrc ~/.bashrc.bak

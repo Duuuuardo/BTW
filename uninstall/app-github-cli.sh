@@ -1,3 +1,3 @@
 #!/bin/bash
 
-yay -Rns --noconfirm github-cli
+sudo apt remove --purge -y gh

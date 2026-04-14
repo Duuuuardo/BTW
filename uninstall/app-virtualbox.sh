@@ -1,4 +1,4 @@
 #!/bin/bash
 
-yay -Rns --noconfirm virtualbox virtualbox-host-dkms
+sudo apt remove --purge -y virtualbox-7.1
 rm -rf ~/.config/VirtualBox

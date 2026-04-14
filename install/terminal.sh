@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Needed for all installers
-sudo pacman -Syu --noconfirm
-sudo pacman -S --needed --noconfirm curl git unzip
+sudo apt update && sudo apt upgrade -y
+sudo apt install -y curl git unzip software-properties-common
 
 # Run terminal installers
 for installer in ~/.local/share/btw/install/terminal/*.sh; do source $installer; done

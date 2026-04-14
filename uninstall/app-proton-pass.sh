@@ -1,3 +1,3 @@
 #!/bin/bash
 
-yay -Rns --noconfirm proton-pass-bin
+flatpak uninstall -y me.proton.Pass

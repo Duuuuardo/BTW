@@ -1,6 +1,16 @@
 #!/bin/bash
 
-yay -S --needed --noconfirm neovim luarocks tree-sitter-cli dotnet-sdk omnisharp-roslyn
+# Install Neovim (latest stable via PPA), luarocks, tree-sitter, dotnet, and omnisharp
+sudo add-apt-repository ppa:neovim-ppa/stable -y
+sudo apt update && sudo apt install -y neovim luarocks
+
+# tree-sitter-cli via npm (requires mise node to be installed)
+mise exec -- npm install -g tree-sitter-cli
+
+# dotnet via Microsoft's install script
+curl -fsSL https://dot.net/v1/dotnet-install.sh | bash -s -- --channel LTS --install-dir ~/.dotnet
+export PATH="$PATH:$HOME/.dotnet"
+echo 'export PATH="$PATH:$HOME/.dotnet"' >> ~/.local/share/btw/defaults/zsh/shell
 
 # Only attempt to set configuration if Neovim has never been run
 if [ ! -d "$HOME/.config/nvim" ]; then

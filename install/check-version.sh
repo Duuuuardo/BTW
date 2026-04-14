@@ -8,10 +8,10 @@ fi
 
 . /etc/os-release
 
-if [ "$ID" != "arch" ]; then
+if [ "$ID" != "ubuntu" ]; then
   echo "$(tput setaf 1)Error: OS requirement not met"
   echo "You are currently running: $ID"
-  echo "OS required: Arch Linux"
+  echo "OS required: Ubuntu"
   echo "Installation stopped."
   exit 1
 fi

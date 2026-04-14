@@ -1,4 +1,4 @@
 #!/bin/bash
 
-# Install Proton Pass
-yay -S --needed --noconfirm proton-pass-bin
+# Install Proton Pass via flatpak
+flatpak install --or-update -y flathub me.proton.Pass

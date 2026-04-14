@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # Alacritty is a GPU-powered and highly extensible terminal. See https://alacritty.org/
-yay -S --needed --noconfirm alacritty
+sudo add-apt-repository ppa:aslatter/ppa -y
+sudo apt install -y alacritty
 mkdir -p ~/.config/alacritty
 cp ~/.local/share/btw/configs/alacritty.toml ~/.config/alacritty/alacritty.toml
 cp ~/.local/share/btw/configs/alacritty/shared.toml ~/.config/alacritty/shared.toml

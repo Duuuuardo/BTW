@@ -1,3 +1,3 @@
 #!/bin/bash
 
-yay -Rns --noconfirm xournalpp
+sudo apt remove --purge -y xournalpp

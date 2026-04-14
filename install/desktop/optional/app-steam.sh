@@ -1,2 +1,3 @@
 # Play games from https://store.steampowered.com/
-yay -S --needed steam --noconfirm
+sudo add-apt-repository multiverse -y
+sudo apt install -y steam
