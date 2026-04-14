@@ -7,3 +7,5 @@ export BTW_FIRST_RUN_LANGUAGES=$(gum choose "${AVAILABLE_LANGUAGES[@]}" --no-lim
 AVAILABLE_DBS=("MySQL" "Redis" "PostgreSQL")
 SELECTED_DBS="MySQL,Redis"
 export BTW_FIRST_RUN_DBS=$(gum choose "${AVAILABLE_DBS[@]}" --no-limit --selected "$SELECTED_DBS" --height 5 --header "Select databases (runs in Docker)")
+
+export BTW_INSTALL_WINDOWS_VM=$(gum confirm "Install Windows VM? (requires ~30GB)" && echo "yes" || echo "no")
