@@ -67,14 +67,4 @@ return {
 		},
 	},
 
-	-- opencode: AI coding agent in the terminal
-	{
-		"opencode-ai/opencode.nvim",
-		dependencies = { "MunifTanjim/nui.nvim" },
-		opts = {},
-		keys = {
-			{ "<leader>ao", "<cmd>OpenCode<cr>", desc = "OpenCode" },
-			{ "<leader>aO", "<cmd>OpenCodeDiff<cr>", desc = "OpenCode Diff" },
-		},
-	},
 }
