@@ -19,7 +19,11 @@ return {
 				"netcoredbg",
 				"emmet-language-server",
 				"html-lsp",
+				"htmx-lsp",
 				"json-lsp",
+				"kotlin-language-server",
+				"ruby-lsp",
+				"rubocop",
 			})
 		end,
 	},
@@ -37,7 +41,8 @@ return {
 						return require("lspconfig.util").root_pattern(".git")(...)
 					end,
 				},
-				tsserver = {
+				-- ts_ls replaces the deprecated tsserver
+				ts_ls = {
 					root_dir = function(...)
 						return require("lspconfig.util").root_pattern(".git")(...)
 					end,
@@ -68,6 +73,8 @@ return {
 					},
 				},
 				html = {},
+				htmx = {},
+				kotlin_language_server = {},
 				yamlls = {
 					settings = {
 						yaml = {
@@ -139,9 +146,9 @@ return {
 	},
 	{
 		"neovim/nvim-lspconfig",
-		opts = function()
-			local keys = require("lazyvim.plugins.lsp.keymaps").get()
-			vim.list_extend(keys, {
+		opts = function(_, opts)
+			opts.keys = opts.keys or {}
+			vim.list_extend(opts.keys, {
 				{
 					"gd",
 					function()

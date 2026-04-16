@@ -11,13 +11,19 @@ return {
 				"gitignore",
 				"go",
 				"graphql",
+				"html",
 				"http",
 				"java",
+				"javascript",
+				"kotlin",
 				"php",
+				"ruby",
 				"rust",
 				"scss",
 				"sql",
 				"svelte",
+				"tsx",
+				"typescript",
 			},
 			query_linter = {
 				enable = true,
@@ -25,15 +31,8 @@ return {
 				lint_events = { "BufWrite", "CursorHold" },
 			},
 		},
-		config = function(_, opts)
-			require("nvim-treesitter.configs").setup(opts)
-
-			-- MDX
-			vim.filetype.add({
-				extension = {
-					mdx = "mdx",
-				},
-			})
+		init = function()
+			-- MDX: register markdown parser for mdx files
 			vim.treesitter.language.register("markdown", "mdx")
 		end,
 	},
