@@ -1,9 +1,12 @@
 #!/bin/bash
 
-sudo apt install -y python3-build gnome-shell-extension-manager
+sudo apt install -y python3-build gnome-shell-extension-manager gir1.2-gtop-2.0
 
 # Install gnome-extensions-cli via pipx
 pipx install gnome-extensions-cli --system-site-packages
+
+# Allow extensions regardless of GNOME version
+gsettings set org.gnome.shell disable-extension-version-validation true
 
 # Turn off default GNOME extensions (if present)
 gnome-extensions disable tiling-assistant@ubuntu.com 2>/dev/null || true
@@ -18,16 +21,16 @@ gum confirm "To install Gnome extensions, you need to accept some confirmations.
 gext install tactile@lundal.io
 gext install just-perfection-desktop@just-perfection
 gext install blur-my-shell@aunetx
-gext install workspaces-bar@fthx                  # replaces space-bar (GNOME 47+ compatible)
-gext install Vitals@CoreCoding.com                # replaces tophat (GNOME 47+ compatible)
+gext install space-bar@luchrioh
+gext install tophat@fflewddur.github.io
 gext install AlphabeticalAppGrid@stuarthayhurst
 
 # Compile gsettings schemas in order to be able to set them
 sudo cp ~/.local/share/gnome-shell/extensions/tactile@lundal.io/schemas/org.gnome.shell.extensions.tactile.gschema.xml /usr/share/glib-2.0/schemas/
 sudo cp ~/.local/share/gnome-shell/extensions/just-perfection-desktop\@just-perfection/schemas/org.gnome.shell.extensions.just-perfection.gschema.xml /usr/share/glib-2.0/schemas/
 sudo cp ~/.local/share/gnome-shell/extensions/blur-my-shell\@aunetx/schemas/org.gnome.shell.extensions.blur-my-shell.gschema.xml /usr/share/glib-2.0/schemas/
-sudo cp ~/.local/share/gnome-shell/extensions/workspaces-bar\@fthx/schemas/org.gnome.shell.extensions.workspaces-bar.gschema.xml /usr/share/glib-2.0/schemas/ 2>/dev/null || true
-sudo cp ~/.local/share/gnome-shell/extensions/Vitals\@CoreCoding.com/schemas/org.gnome.shell.extensions.vitals.gschema.xml /usr/share/glib-2.0/schemas/
+sudo cp ~/.local/share/gnome-shell/extensions/space-bar\@luchrioh/schemas/org.gnome.shell.extensions.space-bar.gschema.xml /usr/share/glib-2.0/schemas/
+sudo cp ~/.local/share/gnome-shell/extensions/tophat\@fflewddur.github.io/schemas/org.gnome.shell.extensions.tophat.gschema.xml /usr/share/glib-2.0/schemas/
 sudo cp ~/.local/share/gnome-shell/extensions/AlphabeticalAppGrid\@stuarthayhurst/schemas/org.gnome.shell.extensions.AlphabeticalAppGrid.gschema.xml /usr/share/glib-2.0/schemas/
 sudo glib-compile-schemas /usr/share/glib-2.0/schemas/
 
@@ -55,17 +58,21 @@ gsettings set org.gnome.shell.extensions.blur-my-shell.panel blur false
 gsettings set org.gnome.shell.extensions.blur-my-shell.overview blur true
 gsettings set org.gnome.shell.extensions.blur-my-shell.overview pipeline 'pipeline_default'
 
-# Configure Vitals (system monitor)
-gsettings set org.gnome.shell.extensions.vitals hot-sensors "['__network-rx_max__', '__network-tx_max__', '_memory_usage_']"
-gsettings set org.gnome.shell.extensions.vitals show-storage false
-gsettings set org.gnome.shell.extensions.vitals show-temperature false
-gsettings set org.gnome.shell.extensions.vitals show-voltage false
-gsettings set org.gnome.shell.extensions.vitals show-fan false
-gsettings set org.gnome.shell.extensions.vitals show-memory true
-gsettings set org.gnome.shell.extensions.vitals show-processor true
-gsettings set org.gnome.shell.extensions.vitals show-network true
-gsettings set org.gnome.shell.extensions.vitals use-higher-precision false
-gsettings set org.gnome.shell.extensions.vitals position-in-panel 0
+# Configure Space Bar (workspace indicator)
+gsettings set org.gnome.shell.extensions.space-bar.behavior smart-workspace-names false
+gsettings set org.gnome.shell.extensions.space-bar.shortcuts enable-activate-workspace-shortcuts false
+gsettings set org.gnome.shell.extensions.space-bar.shortcuts enable-move-to-workspace-shortcuts true
+gsettings set org.gnome.shell.extensions.space-bar.shortcuts open-menu "@as []"
+
+# Configure TopHat (system monitor)
+gsettings set org.gnome.shell.extensions.tophat show-icons false
+gsettings set org.gnome.shell.extensions.tophat show-cpu false
+gsettings set org.gnome.shell.extensions.tophat show-disk false
+gsettings set org.gnome.shell.extensions.tophat show-mem false
+gsettings set org.gnome.shell.extensions.tophat network-usage-unit bits
+
+# Set TopHat metrics color to match the Gruvbox theme
+source $BTW_PATH/themes/gruvbox/tophat.sh
 
 # Configure AlphabeticalAppGrid
 gsettings set org.gnome.shell.extensions.alphabetical-app-grid folder-order-position 'end'
